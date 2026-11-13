@@ -1,14 +1,184 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.tuempresa.evaluacion1corte3.controller.EquipoController"
-            prefHeight="400.0" prefWidth="600.0">
+<VBox prefHeight="700.0"
+      prefWidth="950.0"
+      spacing="12.0"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.tuempresa.evaluacion1corte3.controller.EquipoController">
 
-</AnchorPane>
+    <padding>
+        <Insets bottom="20.0" left="20.0"
+                right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Control de Equipos de Laboratorio"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10.0" vgap="10.0">
+
+        <Label text="Código:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="0"/>
+
+        <TextField fx:id="txtCodigo"
+                   prefWidth="220.0"
+                   promptText="Código del equipo"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="0"/>
+
+        <Label text="Nombre:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="1"/>
+
+        <TextField fx:id="txtNombre"
+                   promptText="Nombre del equipo"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"/>
+
+        <Label text="Marca:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="2"/>
+
+        <TextField fx:id="txtMarca"
+                   promptText="Marca del equipo"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="2"/>
+
+        <Label text="Cantidad:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="3"/>
+
+        <TextField fx:id="txtCantidad"
+                   promptText="Cantidad disponible"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="3"/>
+
+        <Label text="Tipo de equipo:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="4"/>
+
+        <ComboBox fx:id="cbTipo"
+                  prefWidth="220.0"
+                  promptText="Seleccione un tipo"
+                  GridPane.columnIndex="1"
+                  GridPane.rowIndex="4"/>
+
+        <Label text="Estado:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="5"/>
+
+        <ComboBox fx:id="cbEstado"
+                  prefWidth="220.0"
+                  promptText="Seleccione un estado"
+                  GridPane.columnIndex="1"
+                  GridPane.rowIndex="5"/>
+
+        <columnConstraints>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+        </rowConstraints>
+
+    </GridPane>
+
+    <HBox spacing="10.0">
+
+        <Button text="Guardar equipo"
+                onAction="#guardar"/>
+
+        <Button text="Cargar equipos"
+                onAction="#limpiarFiltros"/>
+
+        <Button fx:id="btnModificar"
+                text="Modificar equipo"
+                onAction="#actualizar"/>
+
+        <Button fx:id="btnEliminar"
+                text="Eliminar equipo"
+                onAction="#eliminar"/>
+
+        <Button text="Limpiar campos"
+                onAction="#limpiar"/>
+
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Buscar y filtrar equipos"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10.0">
+
+        <TextField fx:id="txtBuscar"
+                   prefWidth="220.0"
+                   promptText="Buscar por nombre"/>
+
+        <ComboBox fx:id="cbFiltroTipo"
+                  prefWidth="220.0"
+                  promptText="Filtrar por tipo"/>
+
+        <Button text="Buscar"
+                onAction="#buscar"/>
+
+        <Button text="Quitar filtros"
+                onAction="#limpiarFiltros"/>
+
+    </HBox>
+
+    <Label text="Inventario de equipos"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tablaEquipos"
+               prefHeight="350.0"
+               VBox.vgrow="ALWAYS">
+
+        <placeholder>
+            <Label text="Tabla sin contenido"/>
+        </placeholder>
+
+        <columns>
+
+            <TableColumn fx:id="colCodigo"
+                         prefWidth="110.0"
+                         text="Código"/>
+
+            <TableColumn fx:id="colNombre"
+                         prefWidth="180.0"
+                         text="Nombre"/>
+
+            <TableColumn fx:id="colMarca"
+                         prefWidth="130.0"
+                         text="Marca"/>
+
+            <TableColumn fx:id="colEstado"
+                         prefWidth="160.0"
+                         text="Estado"/>
+
+            <TableColumn fx:id="colCantidad"
+                         prefWidth="110.0"
+                         text="Cantidad"/>
+
+            <TableColumn fx:id="colTipo"
+                         prefWidth="190.0"
+                         text="Tipo de equipo"/>
+
+        </columns>
+
+    </TableView>
+
+</VBox>
+

@@ -11,6 +11,10 @@ CREATE TABLE laboratorio.tipo_equipo (
     descripcion VARCHAR(255)
 );
 
+SELECT schema_name
+FROM information_schema.schemata
+WHERE schema_name = 'laboratorio';
+
 
 --Creacion de la tabla Equipo
 CREATE TABLE laboratorio.equipo (
